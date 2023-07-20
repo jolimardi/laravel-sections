@@ -1,0 +1,16 @@
+{
+    "name": "jolimardi/laravel-mysections",
+    "description": "Sections jolimardi",
+    "autoload": {
+        "psr-4": {
+            "Jolimardi\\LaravelMysections\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emilien Hodee",
+            "email": "hodeeemilien@gmail.com"
+        }
+    ],
+    "require": {}
+}
