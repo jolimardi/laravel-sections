@@ -1,0 +1,94 @@
+/* ----------   Home - "A propos" section   ------------ */
+
+.reverse .text-with-image {
+    flex-direction: row-reverse;
+}
+
+.section--text-with-image {
+
+    .text-with-image {
+        display: flex;
+        align-items: stretch;
+
+        & > * {
+            flex: 1;
+        }
+
+        .section-image {
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                object-fit: cover;
+                object-position: top;
+                width: 100%;
+                height: 100%;
+            }
+
+            .video-thumbnail {
+                margin: 0;
+                height: 100%;
+
+                /* Permet de faire grandir le ratio 16x9 si besoin pour que la vidéo fasse toute la hauteur de la section */
+                &:after {
+                    display: table;
+                    content: '';
+                    clear: both;
+                }
+
+                iframe {
+                    border-radius: 0;
+                }
+            }
+        }
+
+        .text-container {
+            position: relative;
+            z-index: 1;
+            width: 40%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text {
+            max-width: 680px;
+            margin: auto;
+            padding: 4em 2em;
+
+            .subheading {
+                color: var(--blue);
+            }
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .section--text-with-image {
+        .text-with-image {
+            flex-direction: column;
+
+            .section-image {
+                aspect-ratio: 16/9;
+                width: 100%;
+            }
+
+            .text-container {
+                width: auto;
+            }
+
+            .text {
+                padding: 2em 2em;
+            }
+
+            .video-thumbnail:after {
+                display: none;
+            }
+        }
+    }
+}

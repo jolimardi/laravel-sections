@@ -1,0 +1,53 @@
+.section--horizontal-card {
+    padding: 2em 0;
+
+
+    .horizontal-card {
+        padding: 1.5em 1.6em;
+        background-color: var(--light-gray);
+        border-radius: 10px;
+        gap: 2em;
+
+        .text-container {
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+
+            .text {
+                h3 {
+                    margin: 0;
+                }
+
+                /*p {
+                    max-width: 55ch;
+                }*/
+
+                .btns {
+                    margin-top: 1.4em;
+                }
+            }
+        }
+        .section-image{
+            align-self: flex-start;
+        }
+
+    }
+}
+
+.reverse .horizontal-card {
+    flex-direction: row-reverse;
+
+    .text-container{
+        margin-left: 1em;
+    }
+}
+
+@media (max-width: 700px) {
+    .section--horizontal-card {
+        .horizontal-card {
+            flex-direction: column;
+            padding: 1em;
+
+        }
+    }
+}
