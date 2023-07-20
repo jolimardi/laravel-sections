@@ -1,9 +1,11 @@
 {
     "name": "jolimardi/laravel-mysections",
     "description": "Sections jolimardi",
+    "type": "library",
+    "license": "GPL-3.0",
     "autoload": {
         "psr-4": {
-            "Jolimardi\\LaravelMysections\\": "src/"
+            "Jolimardi\\MySections\\": "src/"
         }
     },
     "authors": [
@@ -12,5 +14,12 @@
             "email": "hodeeemilien@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JoliMardi\\MySections\\MySectionsServiceProvider"
+            ]
+        }
+    }
 }
