@@ -9,7 +9,7 @@
         align-items: stretch;
     }
 
-.section--text-with-image .text-with-image > * {
+.section--text-with-image .text-with-image>* {
             flex: 1;
         }
 

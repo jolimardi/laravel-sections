@@ -41,3 +41,31 @@ N'hésitez pas à contacter le support si vous rencontrez des problèmes lors de
 ## TODO 
 
 - Ajouter process de création de section ?
+
+
+# Changer le contenu du package 
+
+Il est possible d'update le package à sa guise. 
+
+1. Installer les dépendances 
+
+```bash
+composer install
+npm install
+```
+
+2. Update le fichier à chaque sauvegarde `dist/sections.css`
+
+```bash
+npx mix watch
+```
+
+Ou mettre à jour une fois
+
+```bash
+npx mix
+```
+
+**Note :** Si on ajoute un fichier css, il faut l'ajouter au `webpack.min.js` et relancé la commande `npx mix watch`. J'ai essayer de glob les fichiers mais j'ai toujours un comportement qui ne convient pas. 
+
+Puis mettre à jour le repository et update le projet. 
