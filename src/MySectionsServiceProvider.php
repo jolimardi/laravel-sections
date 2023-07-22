@@ -27,13 +27,12 @@ class MySectionsServiceProvider extends ServiceProvider {
             __DIR__ . '/migrations' => database_path('migrations'),
         ], 'migrations');
 
-        Blade::directive('mySection', fn ($expression) => "<?php \App\Providers\AppServiceProvider::mySection($expression); ?>");
+        Blade::directive('mySection', fn ($expression) => "<?php \JoliMardi\MySections\MySectionsServiceProvider::mySection($expression); ?>");
     }
 
     public function register() {
     }
 
-    // A bouger dans un package plus tard
     public static function mySection($data, $key = false) {
 
         if ($key) {
