@@ -10,22 +10,28 @@ class MySectionsServiceProvider extends ServiceProvider {
 
         $this->loadViewsFrom(__DIR__ . '/views', 'mysections');
 
-        // Nova + models
-        $this->publishes([
-            __DIR__ . '/Nova' => app_path('Nova'),
-            __DIR__ . '/Models' => app_path('Models'),
-        ], 'nova');
+        // Permet d'ajouter les fichiers que si on est en console (donc pas en prod)
+        if ($this->app->runningInConsole()) {
 
-        // Publish views + css
-        $this->publishes([
-            __DIR__ . '/views' => resource_path('views/sections'),
-            __DIR__ . '/css' => resource_path('css/custom'),
-        ], 'views');
+            // Pour publish le css dans le dossier public, parfois ca peut-être mieux (Nova le fait )
+            /*  $this->publishes(
+                [
+                    __DIR__ . '/../dist' => public_path('vendor/mysections'),
+                ],
+                'assets'
+            ); */
 
-        // Publish migrations
-        $this->publishes([
-            __DIR__ . '/migrations' => database_path('migrations'),
-        ], 'migrations');
+            // Nova + models
+            $this->publishes([
+                __DIR__ . '/Nova' => app_path('Nova'),
+                __DIR__ . '/Models' => app_path('Models'),
+            ], 'nova');
+
+            // Migrations
+            $this->publishes([
+                __DIR__ . '/migrations' => database_path('migrations'),
+            ], 'migrations');
+        }
 
         Blade::directive('mySection', fn ($expression) => "<?php \JoliMardi\MySections\MySectionsServiceProvider::mySection($expression); ?>");
     }
