@@ -27,6 +27,10 @@ class MySectionsServiceProvider extends ServiceProvider {
                 __DIR__ . '/Models' => app_path('Models'),
             ], 'nova');
 
+            $this->publishes([
+                __DIR__ . '/components' => resource_path('views/components'),
+            ], 'components');
+
             // Migrations
             $this->publishes([
                 __DIR__ . '/migrations' => database_path('migrations'),
