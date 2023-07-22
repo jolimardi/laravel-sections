@@ -1,0 +1,92 @@
+/* ----------   Home - "A propos" section   ------------ */
+
+.reverse .text-with-image {
+    flex-direction: row-reverse;
+}
+
+.section--text-with-image .text-with-image {
+        display: flex;
+        align-items: stretch;
+    }
+
+.section--text-with-image .text-with-image > * {
+            flex: 1;
+        }
+
+.section--text-with-image .text-with-image .section-image {
+            position: relative;
+        }
+
+.section--text-with-image .text-with-image .section-image img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                -o-object-fit: cover;
+                   object-fit: cover;
+                -o-object-position: top;
+                   object-position: top;
+                width: 100%;
+                height: 100%;
+            }
+
+.section--text-with-image .text-with-image .section-image .video-thumbnail {
+                margin: 0;
+                height: 100%;
+
+                /* Permet de faire grandir le ratio 16x9 si besoin pour que la vidéo fasse toute la hauteur de la section */
+            }
+
+.section--text-with-image .text-with-image .section-image .video-thumbnail:after {
+                    display: table;
+                    content: '';
+                    clear: both;
+                }
+
+.section--text-with-image .text-with-image .section-image .video-thumbnail iframe {
+                    border-radius: 0;
+                }
+
+.section--text-with-image .text-with-image .text-container {
+            position: relative;
+            z-index: 1;
+            width: 40%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+.section--text-with-image .text-with-image .text {
+            max-width: 680px;
+            margin: auto;
+            padding: 4em 2em;
+        }
+
+.section--text-with-image .text-with-image .text .subheading {
+                color: var(--blue);
+            }
+
+@media (max-width: 960px) {
+        .section--text-with-image .text-with-image {
+            flex-direction: column;
+        }
+
+            .section--text-with-image .text-with-image .section-image {
+                aspect-ratio: 16/9;
+                width: 100%;
+            }
+
+            .section--text-with-image .text-with-image .text-container {
+                width: auto;
+            }
+
+            .section--text-with-image .text-with-image .text {
+                padding: 2em 2em;
+            }
+
+            .section--text-with-image .text-with-image .video-thumbnail:after {
+                display: none;
+            }
+}

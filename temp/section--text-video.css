@@ -1,0 +1,98 @@
+.section--text-with-video {
+    position: relative;
+}
+
+
+.section--text-with-video .wavy-background {
+        background: var(--gradient-section);
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 30%;
+        background-size: 100% 100%;
+        -webkit-clip-path: url('#wavy-background-clip-path');
+                clip-path: url('#wavy-background-clip-path');
+    }
+
+
+.section--text-with-video .text-with-video {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 48px;
+        align-items: center;
+    }
+
+
+.section--text-with-video .text-container {
+        position: relative;
+        z-index: 1;
+        width: 40%;
+        max-width: 100%;
+    }
+
+
+.section--text-with-video .text {
+        max-width: 680px;
+        margin: auto;
+    }
+
+
+.section--text-with-video .text, .section--text-with-video .text p{
+            font-size: var(--sm-fs);
+        }
+
+
+.section--text-with-video .video-container {
+        width: 60%;
+    }
+
+
+.section--text-with-video .max-width-large {
+        max-width: 90%;
+    }
+
+
+@media (max-width: 1160px) {
+        .section--text-with-video .max-width-large {
+            max-width: 100%;
+        }
+}
+
+@media (max-width: 700px) {
+    .section--text-with-video {
+        padding-top: 0;
+        padding-bottom: 32px;
+    }
+        .section--text-with-video .text-with-video {
+            flex-direction: column;
+            gap: 16px;
+        }
+        .section--text-with-video .wavy-background {
+            -webkit-clip-path: none;
+                    clip-path: none;
+            right: 0;
+        }
+        .section--text-with-video .max-width-large{
+            margin: 0;
+        }
+
+        .section--text-with-video .video-container{
+            width: calc(100% + 2 * var(--gutter));
+            margin: 0 calc(-1 * var(--gutter));
+        }
+
+            .section--text-with-video .video-container iframe{
+                border-radius: 0;
+            }
+        .section--text-with-video .video-thumbnail{
+            margin-top: 0;
+        }
+        .section--text-with-video .video-thumbnail img{
+            border-radius: 0;
+        }
+
+        .section--text-with-video .text-container{
+            width: 100%;
+        }
+}
