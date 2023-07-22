@@ -2,6 +2,7 @@
 
 namespace JoliMardi\MySections;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class MySectionsServiceProvider extends ServiceProvider {
@@ -24,9 +25,33 @@ class MySectionsServiceProvider extends ServiceProvider {
         // Publish migrations
         $this->publishes([
             __DIR__ . '/migrations' => database_path('migrations'),
-        ], 'mysections-migrations');
+        ], 'migrations');
+
+        Blade::directive('mySection', fn ($expression) => "<?php \App\Providers\AppServiceProvider::mySection($expression); ?>");
     }
 
     public function register() {
+    }
+
+    // A bouger dans un package plus tard
+    public static function mySection($data, $key = false) {
+
+        if ($key) {
+            $sections = $data;
+
+            if (!isset($sections[$key])) {
+                echo '<!-- $sections["' . $key . '"] introuvable depuis @mySection() --!>';
+                return;
+            } else {
+                $section = $sections[$key];
+            }
+        } else {
+            $section = $data;
+        }
+        if (isset($section->template_name)) {
+            echo view('sections.' . $section->template_name, ['section' => $section]);
+        } else {
+            echo '<!-- @mySection() : $section invalide, pas de template_name --!>';
+        }
     }
 }
