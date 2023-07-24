@@ -58,9 +58,10 @@ Il est possible d'utiliser le composant `<x-section>` dans vos vues afin de déf
 
 Voici les étapes à suivre pour créer une nouvelle section :
 
-1. Ouvrez Nova et rendez-vous sur le tableau de bord.
+1. Ouvrez Nova et rendez-vous sur le tableau de bord. 
 2. Dans le menu, cliquez sur "Sections" pour ouvrir la liste des sections.
 3. Cliquez sur "Ajouter une nouvelle section".
+> Si vous avez ajouter une nouvelle section au packages, pensez à vous rentre sur "Sections templates" en amont pour lui donner un nom afin de pouvoir l'utiliser lors de la sélection du template
 4. Sélectionnez les paramètres de la section. Trois sections sont pré-définies, mais il est possible d'en ajouter d'autres.
 5. Pour ajouter une nouvelle section, allez dans "Section templates" sur Nova.
 6. Donnez un nom à votre section et sélectionnez une vue.
@@ -79,18 +80,37 @@ composer install
 npm install
 ```
 
-2. Update le fichier à chaque sauvegarde `dist/sections.css`
+2. Modifier un fichier css à chaque sauvegarde `dist/sections.css`
 
 ```bash
 npx mix watch
 ```
 
-Ou mettre à jour une fois
+Ou mettre à jour une fois en utilisant :
 
 ```bash
 npx mix
 ```
 
-**Note :** Si on ajoute un fichier css, il faut l'ajouter au `webpack.min.js` et relancé la commande `npx mix watch`. J'ai essayer de glob les fichiers mais j'ai toujours un comportement qui ne convient pas. 
+## Ajouter une nouvelle section au package
 
-Puis mettre à jour le repository et update le projet. 
+1. **Ajouter une nouvelle vue :** Créez et ajoutez une nouvelle vue dans le dossier `src/views`.
+
+2. **Ajouter un fichier CSS :** Créez et ajoutez un fichier CSS correspondant dans le dossier `src/css`.
+
+3. **Mettre à jour le fichier `webpack.mix.js` :** Ajoutez le fichier CSS à la configuration du `webpack.mix.js`.
+
+4. **Compilation des assets :** Exécutez la commande npx mix pour recompiler les assets et actualiser le dossier `dist`.
+
+5. **Mise à jour du submodule :** Si vous utilisez ce package en tant que submodule dans un autre projet, assurez-vous de mettre à jour le submodule.
+
+6. **Référence :** Ensuite, reportez-vous à la section 'Création d'une nouvelle section' pour plus de détails sur la création d'une nouvelle section.
+
+**Note :** Si on ajoute un fichier css, il faut l'ajouter au `webpack.mix.js` et relancé la commande `npx mix watch`.
+
+Puis mettre à jour le dépôt et de mettre à jour votre projet avec les nouvelles modifications.
+
+#### @TODO
+
+- Ajouter les variables css type max-width pour pouvoir utiliser le component `<x-section><x-section />` sans avoir besoin de jolimardi-css
+- Build le webpack.mix.js pour automatiquement récuperer tout les fichiers css du dossier relatif.  J'ai essayer de glob les fichiers mais j'ai toujours un comportement qui ne convient pas. 
