@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 class MySectionsServiceProvider extends ServiceProvider {
     public function boot() {
 
-        $this->loadViewsFrom(__DIR__ . '/views', 'mysections');
+        $this->loadViewsFrom(__DIR__ . '/views', 'section');
 
         // Permet d'ajouter les fichiers que si on est en console (donc pas en prod)
         if ($this->app->runningInConsole()) {
@@ -26,10 +26,10 @@ class MySectionsServiceProvider extends ServiceProvider {
                 __DIR__ . '/Nova' => app_path('Nova'),
                 __DIR__ . '/Models' => app_path('Models'),
             ], 'nova');
-
-            $this->publishes([
+            /* publish le components */
+            /* $this->publishes([
                 __DIR__ . '/components' => resource_path('views/components'),
-            ], 'components');
+            ], 'components'); */
 
             // Migrations
             $this->publishes([
