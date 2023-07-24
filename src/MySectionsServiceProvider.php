@@ -26,10 +26,6 @@ class MySectionsServiceProvider extends ServiceProvider {
                 __DIR__ . '/Nova' => app_path('Nova'),
                 __DIR__ . '/Models' => app_path('Models'),
             ], 'nova');
-            /* publish le components */
-            /* $this->publishes([
-                __DIR__ . '/components' => resource_path('views/components'),
-            ], 'components'); */
 
             // Migrations
             $this->publishes([
@@ -61,7 +57,7 @@ class MySectionsServiceProvider extends ServiceProvider {
             $section = $data;
         }
         if (isset($section->template_name)) {
-            echo view('sections.' . $section->template_name, ['section' => $section]);
+            echo view('section::' . $section->template_name, ['section' => $section]);
         } else {
             echo '<!-- @mySection() : $section invalide, pas de template_name --!>';
         }

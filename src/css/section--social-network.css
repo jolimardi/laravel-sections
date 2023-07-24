@@ -1,18 +1,12 @@
 .social-links {
     display: flex;
-    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
     padding: 0;
 
-    li {
-        margin-right: 10px;
-    }
-
-    a {
-        text-decoration: none;
-        color: #000;
-
-        &:hover {
-            color: #007BFF;
-        }
+    p {
+        margin: 0;
+        padding: 1em 0;
     }
 }
