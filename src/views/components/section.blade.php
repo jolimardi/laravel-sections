@@ -1,4 +1,3 @@
-
 @props([
     'maxWidth' => 'medium',
     'bg' => '',
@@ -6,10 +5,10 @@
         'small' => 'max-width-small',
         'medium' => 'max-width',
         'large' => 'max-width-large',
-    ]
+    ],
 ])
 
-<div {{ $attributes->merge(['class' => "section {$bg}"]) }} >
+<div {{ $attributes->merge(['class' => "section {$bg}"]) }}>
     <div class="{{ $maxWidthClasses[$maxWidth] }}">
         {{ $slot }}
     </div>

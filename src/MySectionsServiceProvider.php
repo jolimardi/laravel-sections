@@ -38,6 +38,9 @@ class MySectionsServiceProvider extends ServiceProvider {
         }
 
         Blade::directive('mySection', fn ($expression) => "<?php \JoliMardi\MySections\MySectionsServiceProvider::mySection($expression); ?>");
+
+        /* Components */
+        Blade::component('section', \JoliMardi\MySections\Components\Section::class);
     }
 
     public function register() {
