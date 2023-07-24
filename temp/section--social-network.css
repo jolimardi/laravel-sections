@@ -1,0 +1,15 @@
+.social-links {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+.social-links li {
+        margin-right: 10px;
+    }
+.social-links a {
+        text-decoration: none;
+        color: #000;
+    }
+.social-links a:hover {
+            color: #007BFF;
+        }

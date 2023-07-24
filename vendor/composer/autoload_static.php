@@ -9,12 +9,12 @@ class ComposerStaticInit5c51a7a5770dee33ba7f11b8e4120fae
     public static $prefixLengthsPsr4 = array (
         'J' => 
         array (
-            'Jolimardi\\LaravelMysections\\' => 28,
+            'Jolimardi\\MySections\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Jolimardi\\LaravelMysections\\' => 
+        'Jolimardi\\MySections\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
