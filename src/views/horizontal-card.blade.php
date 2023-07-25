@@ -4,6 +4,7 @@
     'sectionkey--' . $section->keyClassname,
     $section->classname,
     'reverse' => $section->reverse,
+    'alternative' => $section->alternative,
 ])>
     <div class="horizontal-card flex align-center gap">
 
@@ -18,13 +19,18 @@
         <div class="text-container">
             <div class="text">
 
+                @empty(!$section->alternative)
+                    <h5 class="subheading text-highlight-blue">{{ $section->subheading }}</h5>
+                @endempty
                 {{-- Title --}}
                 @empty(!$section->title)
                     <h3>{!! $section->title !!}</h3>
                 @endempty
 
                 {{-- Content CKE --}}
-                {!! $section->p !!}
+                @empty($section->alternative)
+                    {!! $section->p !!}
+                @endempty
 
                 <div class="btns">
                     {{-- CTA --}}
