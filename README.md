@@ -1,22 +1,30 @@
 # Jolimardi - laravel-mysections
 
-**Ce package fonctionne avec Laravel Nova, veillez donc à l'avoir installé avant de poursuivre. Vous pouvez trouver la documentation et les instructions d'installation de Laravel Nova sur leur [page officielle](https://nova.laravel.com/docs/4.0/installation.html)**
+**Ce package fonctionne avec Laravel Nova, veillez donc à l'installer avant de poursuivre. Retrouver la documentation et les instructions d'installation de Laravel Nova sur leur [page officielle](https://nova.laravel.com/docs/4.0/installation.html)**
 
 **Il est également préférable d'utiliser le css jolimardi pour assurer un bon fonctionnement. [jolimardi-css GitHub](https://github.com/jolimardi/jolimardi-css)**
 
 ## Installation 
 
-1. Exécutez la commande suivante pour ajouter laravel-mysections au projet :
+1. Exécuter la commande suivante pour ajouter laravel-mysections au projet :
 
 ```bash
 composer require jolimardi/laravel-sections
 ```
 
-2. Publiez les ressources du package en utilisant :
+2. Publier les ressources du package en utilisant :
 
 ```bash
 php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider"
 ```
+
+#### Tags
+
+Il est également possible de *publish* le package en plusieurs fois en ajoutant différents tags, selon les besoins : 
+
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="nova"` - *Publish aussi les models*
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="migrations"`
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="assets"`
 
 3. Lancez les migrations pour ajouter les tables nécessaires à la base de données :
 
@@ -28,21 +36,21 @@ php artisan migrate`
 
 - Ajoutez `JoliMardi\MySections\MySectionsServiceProvider::class` à votre fichier `config/app.php`, seulement si cela s'avère nécessaire. Cette étape peut être requise si le package ne respecte pas la convention PSR-4 ou s'il est mal implémenté dans le `composer.json` autoload.
 
-- Importez le fichier CSS du package dans votre fichier app.css en ajoutant la ligne suivante :
+- Importez le fichier CSS du package dans `app.css` en ajoutant la ligne suivante *(Recommandé avec Vite.js)*:
 
 ```css
-@import "../../vendor/jolimardi/laravel-mysections/dist/sections.css";
+@import "../../public/vendor/mysections/sections.css";
 ```
+
+> En développement, on préferera utiliser `@import "../../vendor/jolimardi/laravel-mysections/dist/sections.css";` pour ne pas avoir à publish les assets à chaque sauvegarde.
 
 ## Utilisation
 
-Utilisez la fonction `mySection($data, $key)` dans vos views pour insérer une section. Vous pouvez passer des données spécifiques à la section ainsi que sa clé correspondante.
-
-N'hésitez pas à contacter le support si vous rencontrez des problèmes lors de l'installation ou de l'utilisation de ce package.
+Utilisez la fonction `mySection($data, $key)` dans une views pour insérer une section. Pour passer des données spécifiques à la section ainsi que sa clé correspondante.
 
 ## Composants
 
-Il est possible d'utiliser le composant `<x-section>` dans vos vues afin de définir des règles CSS pré-établies pour les sections. Voici un exemple :
+Il est possible d'utiliser le composant `<x-section>` dans une views afin de définir des règles CSS pré-établies pour les sections. Voici un exemple :
 
 ```html
 <x-layout>
@@ -91,6 +99,8 @@ Ou mettre à jour une fois en utilisant :
 ```bash
 npx mix
 ```
+
+> Remarque : Si vous modifier le contenu de `/dist` et que vous avez publish les assets. Il faut supprimer le fichier `section.css` dans `public/vendor/mysections` et relancer la commande pour publish le nouveaux fichier. (Voir Installation -> Tags)
 
 ## Ajouter une nouvelle section au package
 
