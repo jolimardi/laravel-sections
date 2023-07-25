@@ -1,4 +1,7 @@
 let mix = require('laravel-mix');
+let fs = require('fs-extra');
+
+fs.removeSync('temp');
 
 mix.options({
     postCss: [
@@ -10,15 +13,15 @@ mix.options({
 
 mix.postCss('src/css/section--text-video.css', 'temp')
     .postCss('src/css/section--text-with-image.css', 'temp')
-    .postCss('src/css/section--horizontal-card.css', 'temp')
-    .postCss('src/css/section--social-network.css', 'temp');
+    .postCss('src/css/section--horizontal-card.css', 'temp');
 
 mix.styles([
     'temp/section--text-video.css',
     'temp/section--text-with-image.css',
     'temp/section--horizontal-card.css',
-    'temp/section--social-network.css',
 ], 'dist/sections.css');
+
+fs.removeSync('temp');
 
 /* let fs = require('fs-extra');
 let glob = require('glob');
