@@ -14,12 +14,12 @@ class MySectionsServiceProvider extends ServiceProvider {
         if ($this->app->runningInConsole()) {
 
             // Pour publish le css dans le dossier public, parfois ca peut-être mieux (Nova le fait )
-            /*  $this->publishes(
+            $this->publishes(
                 [
                     __DIR__ . '/../dist' => public_path('vendor/mysections'),
                 ],
                 'assets'
-            ); */
+            );
 
             // Nova + models
             $this->publishes([
