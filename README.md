@@ -1,4 +1,4 @@
-# Jolimardi - laravel-mysections
+# Jolimardi - laravel-sections
 
 **Ce package fonctionne avec Laravel Nova, veillez donc à l'installer avant de poursuivre. Retrouver la documentation et les instructions d'installation de Laravel Nova sur leur [page officielle](https://nova.laravel.com/docs/4.0/installation.html)**
 

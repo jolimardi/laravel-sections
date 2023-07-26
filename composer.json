@@ -1,6 +1,6 @@
 {
-    "name": "jolimardi/laravel-mysections",
-    "description": "Sections jolimardi",
+    "name": "jolimardi/laravel-sections",
+    "description": "Custom sections implementation by Joli Mardi",
     "type": "library",
     "license": "GPL-3.0",
     "autoload": {
@@ -12,6 +12,10 @@
         {
             "name": "Emilien Hodee",
             "email": "hodeeemilien@gmail.com"
+        },
+        {
+            "name": "Romain Cherot",
+            "email": "romain.cherot@gmail.com"
         }
     ],
     "require": {},
