@@ -1,4 +1,7 @@
 let mix = require('laravel-mix');
+let fs = require('fs-extra');
+
+fs.removeSync('temp');
 
 mix.options({
     postCss: [
@@ -17,6 +20,8 @@ mix.styles([
     'temp/section--text-with-image.css',
     'temp/section--horizontal-card.css',
 ], 'dist/sections.css');
+
+fs.removeSync('temp');
 
 /* let fs = require('fs-extra');
 let glob = require('glob');

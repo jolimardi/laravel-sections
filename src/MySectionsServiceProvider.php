@@ -8,18 +8,18 @@ use Illuminate\Support\ServiceProvider;
 class MySectionsServiceProvider extends ServiceProvider {
     public function boot() {
 
-        $this->loadViewsFrom(__DIR__ . '/views', 'mysections');
+        $this->loadViewsFrom(__DIR__ . '/views', 'section');
 
         // Permet d'ajouter les fichiers que si on est en console (donc pas en prod)
         if ($this->app->runningInConsole()) {
 
             // Pour publish le css dans le dossier public, parfois ca peut-être mieux (Nova le fait )
-            /*  $this->publishes(
+            $this->publishes(
                 [
                     __DIR__ . '/../dist' => public_path('vendor/mysections'),
                 ],
                 'assets'
-            ); */
+            );
 
             // Nova + models
             $this->publishes([
@@ -34,6 +34,9 @@ class MySectionsServiceProvider extends ServiceProvider {
         }
 
         Blade::directive('mySection', fn ($expression) => "<?php \JoliMardi\MySections\MySectionsServiceProvider::mySection($expression); ?>");
+
+        /* Components */
+        Blade::component('section', \JoliMardi\MySections\Components\Section::class);
     }
 
     public function register() {
@@ -54,7 +57,7 @@ class MySectionsServiceProvider extends ServiceProvider {
             $section = $data;
         }
         if (isset($section->template_name)) {
-            echo view('sections.' . $section->template_name, ['section' => $section]);
+            echo view('section::' . $section->template_name, ['section' => $section]);
         } else {
             echo '<!-- @mySection() : $section invalide, pas de template_name --!>';
         }

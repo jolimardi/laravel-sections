@@ -1,7 +1,6 @@
 .section--horizontal-card {
     padding: 2em 0;
 
-
     .horizontal-card {
         padding: 1.5em 1.6em;
         background-color: var(--light-gray);
@@ -27,7 +26,8 @@
                 }
             }
         }
-        .section-image{
+
+        .section-image {
             align-self: flex-start;
         }
 
@@ -37,8 +37,33 @@
 .reverse .horizontal-card {
     flex-direction: row-reverse;
 
-    .text-container{
+    .text-container {
         margin-left: 1em;
+    }
+}
+
+.alternative .horizontal-card {
+    background-color: var(--white);
+    padding: 0;
+
+    .text-container {
+        .text {
+            h3 {
+                margin: 0.6em 0;
+            }
+
+            .subheading {
+                color: var(--blue);
+            }
+        }
+    }
+
+    .section-image {
+        border-radius: 10px 0 0 10px;
+
+        img {
+            width: 250px;
+        }
     }
 }
 

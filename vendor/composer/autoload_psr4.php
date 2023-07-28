@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Jolimardi\\LaravelMysections\\' => array($baseDir . '/src'),
+    'Jolimardi\\MySections\\' => array($baseDir . '/src'),
 );
