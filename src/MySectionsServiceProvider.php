@@ -31,6 +31,11 @@ class MySectionsServiceProvider extends ServiceProvider {
             $this->publishes([
                 __DIR__ . '/migrations' => database_path('migrations'),
             ], 'migrations');
+
+            // Vue 
+            $this->publishes([
+                __DIR__ . '/views' => resource_path('view/vendor/laravel-sections'),
+            ], 'views');
         }
 
         Blade::directive('mySection', fn ($expression) => "<?php \JoliMardi\MySections\MySectionsServiceProvider::mySection($expression); ?>");
@@ -57,7 +62,11 @@ class MySectionsServiceProvider extends ServiceProvider {
             $section = $data;
         }
         if (isset($section->template_name)) {
-            echo view('section::' . $section->template_name, ['section' => $section]);
+            if (view()->exists('vendor.laravel-sections.' . $section->template_name)) {
+                echo view('vendor.laravel-sections.' . $section->template_name, ['section' => $section]);
+            } else {
+                echo view('section::' . $section->template_name, ['section' => $section]);
+            }
         } else {
             echo '<!-- @mySection() : $section invalide, pas de template_name --!>';
         }
