@@ -34,7 +34,7 @@ class MySectionsServiceProvider extends ServiceProvider {
 
             // Vue 
             $this->publishes([
-                __DIR__ . '/views' => resource_path('view/vendor/laravel-sections'),
+                __DIR__ . '/views' => resource_path('views/vendor/laravel-sections'),
             ], 'views');
         }
 
