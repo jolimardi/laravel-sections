@@ -18,7 +18,10 @@
             "email": "romain@cherot.fr"
         }
     ],
-    "require": {},
+    "require": {
+        "ebess/advanced-nova-media-library": "^4.1",
+        "m-a-k-o/youtube-field": "^1.0"
+    },
     "extra": {
         "laravel": {
             "providers": [
