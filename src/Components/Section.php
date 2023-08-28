@@ -12,6 +12,11 @@ class Section extends Component {
     }
 
     public function render(): View|Closure|string {
+
+        if (view()->exists('vendor.laravel-sections.section')) {
+            return view('vendor.laravel-sections.section');
+        }
+
         return view('section::components.section');
     }
 }

@@ -25,6 +25,7 @@ Il est également possible de *publish* le package en plusieurs fois en ajoutant
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="nova"` - *Publish aussi les models*
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="migrations"`
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="assets"`
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="views"`
 
 3. Lancez les migrations pour ajouter les tables nécessaires à la base de données :
 
@@ -61,6 +62,15 @@ Il est possible d'utiliser le composant `<x-section>` dans une views afin de dé
     </x-section>
 </x-layout>
 ```
+
+## Customisé les sections
+
+Après avoir éxécuter la commande : 
+```bash
+php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="views"
+```
+
+Retrouver dans `resources/views/vendor/laravel-sections` les vues des différentes sections qui sont utiliser pour render respectivement chaque section par défaut. 
 
 ## Création d'une nouvelle section
 
