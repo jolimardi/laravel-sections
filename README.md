@@ -45,6 +45,12 @@ php artisan migrate`
 
 > En développement, on préferera utiliser `@import "../../vendor/jolimardi/laravel-mysections/dist/sections.css";` pour ne pas avoir à publish les assets à chaque sauvegarde.
 
+## Supplément pour Nova
+
+Afin que tout fonctionne bien lors de la création de section sur Nova. Il faudt également installer Nova CKEditor : 
+
+https://jolimardi.github.io/documentation/docs/laravel/Features/add-ckeditor
+
 ## Utilisation
 
 Utilisez la fonction `mySection($data, $key)` dans une views pour insérer une section. Pour passer des données spécifiques à la section ainsi que sa clé correspondante.
