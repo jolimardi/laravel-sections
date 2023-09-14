@@ -41,7 +41,7 @@
                 {!! $section->p !!}
 
 
-                @if (!empty($section->subheading) || !empty($section->cta_secondary_title))
+                @if (!empty($section->cta_title) || !empty($section->cta_secondary_title))
                     <div class="btns">
                         {{-- CTA --}}
                     @empty(!$section->cta_title)
