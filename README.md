@@ -24,6 +24,7 @@ Il est également possible de *publish* le package en plusieurs fois en ajoutant
 
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="nova"` - *Publish aussi les models*
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="migrations"`
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="assets"`
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="views"`
 
 3. Lancez les migrations pour ajouter les tables nécessaires à la base de données :
@@ -39,7 +40,7 @@ php artisan migrate`
 - Importez le fichier CSS du package dans `app.css` en ajoutant la ligne suivante *(Recommandé avec Vite.js)*:
 
 ```css
-@import "../../vendor/jolimardi/laravel-sections/dist/sections.css";
+@import "../../public/vendor/mysections/sections.css";
 ```
 
 > En développement, on préferera utiliser `@import "../../vendor/jolimardi/laravel-mysections/dist/sections.css";` pour ne pas avoir à publish les assets à chaque sauvegarde.
