@@ -19,8 +19,10 @@
                 <h2 class="with-separator">{{ $section->title }}</h2>
             @endempty
 
+
             {{-- Content CKE --}}
             {!! $section->p !!}
+
 
             @if (!empty($section->cta_title) || !empty($section->cta_secondary_title))
                 <div class="btns">
@@ -46,16 +48,17 @@
             @endif
 
         </div>
+
+
+        @if ($section->getMedia('photos'))
+            <div class="section-photos">
+                @foreach ($section->getMedia('photos') as $photo)
+                    <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">
+                        {{ $photo->img('', ['alt' => $section->title]) }}
+                    </a>
+                @endforeach
+            </div>
+        @endif
+
     </div>
-
-    @if ($section->getMedia('photos'))
-        <div class="section-photos">
-            @foreach ($section->getMedia('photos') as $photo)
-                <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">
-                    {{ $photo->img('', ['alt' => $section->title]) }}
-                </a>
-            @endforeach
-        </div>
-    @endif
-
 </div>
