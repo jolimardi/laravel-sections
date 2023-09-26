@@ -16,7 +16,7 @@
 
             {{-- Title --}}
             @empty(!$section->title)
-                <h2 class="with-separator">{{ $section->title }}</h2>
+                <h2 class="with-separator">{!! $section->title !!}<</h2>
             @endempty
 
 

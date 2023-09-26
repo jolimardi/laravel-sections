@@ -27,7 +27,7 @@
 
                     {{-- Title --}}
                     @empty(!$section->title)
-                        <h2>{{ $section->title }}</h2>
+                        <h2>{!! $section->title !!}<</h2>
                     @endempty
 
                     {{-- Content CKE --}}
