@@ -10,11 +10,13 @@
         <div class="text-with-video">
 
             {{-- Video --}}
-            <div class="video-container">
-                {{--Juste thumbnail fancybox : <x-youtube :youtube='$section->video_url' :youtube-thumbnail-media="$section->getFirstMedia('video_thumbnail')" />--}}
-                {{-- Autoplay --}}
-                <x-youtube-inline :youtube='$section->video_url' />
-            </div>
+            @if (isset($section->video_url))
+                <div class="video-container">
+                    {{--Juste thumbnail fancybox : <x-youtube :youtube='$section->video_url' :youtube-thumbnail-media="$section->getFirstMedia('video_thumbnail')" />--}}
+                    {{-- Autoplay --}}
+                    <x-youtube-inline :youtube='$section->video_url' />
+                </div>
+            @endif
 
 
             <div class="text-container text-white">

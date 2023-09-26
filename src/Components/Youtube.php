@@ -8,7 +8,10 @@ use Illuminate\View\Component;
 
 class Youtube extends Component {
 
-    public function __construct() {
+    public $youtube;
+
+    public function __construct($youtube) {
+        $this->youtube = $youtube;
     }
 
     public function render(): View|Closure|string {
