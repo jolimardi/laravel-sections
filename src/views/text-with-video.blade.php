@@ -59,7 +59,7 @@
 
 
                     @if ($section->getMedia('photos'))
-                        <div class="photos">
+                        <div class="section-photos">
                             @foreach ($section->getMedia('photos') as $photo)
                                 <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">
                                     {{ $photo->img('', ['alt' => $section->title]) }}
