@@ -76,6 +76,14 @@ return new class extends Migration {
             'name' => 'text',
             'description' => 'Texte'
         ]);
+        DB::table('sections_templates')->insert([
+            'name' => 'text-with-video',
+            'description' => 'Text with Video'
+        ]);
+        DB::table('sections_templates')->insert([
+            'name' => 'horizontal-card',
+            'description' => 'Horizontal Card'
+        ]);
     }
 
 

@@ -13,7 +13,7 @@
             {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
         </div>
 
-        {{-- Image sans classe ni style : {{ $section->getFirstMedia('image') }} --}}
+        {{-- Si SVG : <img src="{{ $section->getFirstMedia('image')->getUrl() }}" alt="{{ $section->title }}"> --}}
 
 
         <div class="text-container">
@@ -32,28 +32,40 @@
                     {!! $section->p !!}
                 @endempty
 
-                <div class="btns">
-                    {{-- CTA --}}
-                    @empty(!$section->cta_title)
-                        @if (!empty($section->cta_routename))
-                            <a href="{{ route($section->cta_routename) }}"
-                                class="btn btn-primary">{{ $section->cta_title }}</a>
-                        @else
-                            <a href="{{ $section->cta_href }}" class="btn btn-primary">{{ $section->cta_title }}</a>
-                        @endif
-                    @endempty
+                @if (!empty($section->cta_title) || !empty($section->cta_secondary_title))
+                    <div class="btns">
+                        {{-- CTA --}}
+                        @empty(!$section->cta_title)
+                            @if (!empty($section->cta_routename))
+                                <a href="{{ route($section->cta_routename) }}"
+                                    class="btn btn-primary">{{ $section->cta_title }}</a>
+                            @else
+                                <a href="{{ $section->cta_href }}" class="btn btn-primary">{{ $section->cta_title }}</a>
+                            @endif
+                        @endempty
 
-                    {{-- secondary CTA --}}
-                    @empty(!$section->cta_secondary_title)
-                        @if (!empty($section->cta_secondary_routename))
-                            <a href="{{ route($section->cta_secondary_routename) }}"
-                                class="btn btn-secondary">{{ $section->cta_secondary_title }}</a>
-                        @else
-                            <a href="{{ $section->cta_secondary_href }}"
-                                class="btn btn-secondary">{{ $section->cta_secondary_title }}</a>
-                        @endif
-                    @endempty
-                </div>
+                        {{-- secondary CTA --}}
+                        @empty(!$section->cta_secondary_title)
+                            @if (!empty($section->cta_secondary_routename))
+                                <a href="{{ route($section->cta_secondary_routename) }}"
+                                    class="btn btn-secondary">{{ $section->cta_secondary_title }}</a>
+                            @else
+                                <a href="{{ $section->cta_secondary_href }}"
+                                    class="btn btn-secondary">{{ $section->cta_secondary_title }}</a>
+                            @endif
+                        @endempty
+                    </div>
+                @endif
+
+                @if ($section->getMedia('photos'))
+                    <div class="photos">
+                        @foreach ($section->getMedia('photos') as $photo)
+                            <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">
+                                {{ $photo->img('', ['alt' => $section->title]) }}
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
     </div>
