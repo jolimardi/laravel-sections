@@ -9,7 +9,7 @@
 
         <div class="text-and-image">
 
-            @if ($section->getMedia('image'))
+            @if ($section->getFirstMedia('image'))
                 <div class="section-image">
                     {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
                 </div>
