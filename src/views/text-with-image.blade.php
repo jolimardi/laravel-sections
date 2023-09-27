@@ -9,17 +9,19 @@
     <div class="text-with-image">
 
         {{-- Image Responsive --}}
-        <div class="section-image">
-            @if (isset($section->video_url))
+        @if (isset($section->video_url))
+            <div class="section-video">
                 <div class="video-container">
                     {{-- <x-youtube :youtube='$section->video_url' :youtube-thumbnail-media="$section->getFirstMedia('video_thumbnail')" /> --}}
                     <x-youtube-inline :youtube='$section->video_url' />
                 </div>
-            @else
+            </div>
+        @else
+            <div class="section-image">
                 {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
-            @endif
+            </div>
+        @endif
 
-        </div>
 
         {{-- Si SVG : <img src="{{ $section->getFirstMedia('image')->getUrl() }}" alt="{{ $section->title }}"> --}}
 
