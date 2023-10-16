@@ -5,7 +5,6 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\TextArea;
 use Laravel\Nova\Fields\BelongsTo;
 
 use Mostafaznv\NovaCkEditor\CkEditor;
@@ -14,42 +13,32 @@ use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use MAKO\YoutubeField\YoutubeField;
 
 class Section extends Resource {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var class-string<\App\Models\Section>
-     */
+
+
+    public static function label() {
+        return 'Sections'; // Titre dans le menu
+    }
+
+    /*  ---------    Config   ----------------------------------------  */
+
     public static $model = \App\Models\Section::class;
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'key';
+    public static $title = 'key';     // C'est le field qui sera utilisé pour "résumer" la ressource
+    public static $search = ['key', 'title'];  // fields searchables
 
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
-    public static $search = [
-        'id', 'key', 'title'
-    ];
+    // Menu
+    public static $group = 'Contenu';  // Groupe dans le menu
 
-    public static $group = 'Contenu';
 
-    /**
-     * Get the fields displayed by the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
+
+
+    /*  ---------    Fields   ----------------------------------------  */
+
     public function fields(NovaRequest $request) {
         return [
             ID::make()->sortable()->hideFromIndex(),
 
-            Text::make('Key')->sortable()->copyable()->placeholder('{page}.{section}'),
+            Text::make('Key')->sortable()->placeholder('{page}.{section}'),
             BelongsTo::make('Template', 'template', 'App\Nova\SectionTemplate')->nullable(),
 
             Text::make('Titre', 'title')->sortable(),
@@ -88,45 +77,5 @@ class Section extends Resource {
 
 
         ];
-    }
-
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function cards(NovaRequest $request) {
-        return [];
-    }
-
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function filters(NovaRequest $request) {
-        return [];
-    }
-
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function lenses(NovaRequest $request) {
-        return [];
-    }
-
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
-     */
-    public function actions(NovaRequest $request) {
-        return [];
     }
 }
