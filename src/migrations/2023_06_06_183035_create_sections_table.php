@@ -48,7 +48,7 @@ return new class extends Migration {
             $table->string('classname')->nullable();
             $table->string('max_width')->nullable();
 
-            $table->string('video_url')->nullable();
+            $table->json('video')->nullable();
 
             $table->timestamps();
         });

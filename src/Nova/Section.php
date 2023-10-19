@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Mostafaznv\NovaCkEditor\CkEditor;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
-use MAKO\YoutubeField\YoutubeField;
+use JoliMardi\NovaVideoField\NovaVideoField;
 
 class Section extends Resource {
 
@@ -68,12 +68,7 @@ class Section extends Resource {
                 ->withResponsiveImages()
                 ->hideFromIndex(),
 
-            YoutubeField::make('Vidéo url', 'video_url')->hideFromIndex(),
-
-            Images::make('Cover de la vidéo', 'video_thumbnail')
-                ->conversionOnIndexView('thumb')
-                ->withResponsiveImages()
-                ->hideFromIndex(),
+            NovaVideoField::make('Vidéo', 'video')->nullable()->hideFromIndex(),
 
 
         ];

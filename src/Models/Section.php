@@ -17,6 +17,13 @@ class Section extends Model implements HasMedia {
 
     protected $table = 'sections_content';
 
+    // Sert pour les vidéos (stockées en json)
+    protected function video(): Attribute {
+        return Attribute::make(
+            get: fn ($value) => json_decode($value),
+        );
+    }
+
     public function template(): BelongsTo {
         return $this->belongsTo(SectionTemplate::class, 'template_name', 'name');
     }
@@ -48,6 +55,5 @@ class Section extends Model implements HasMedia {
     public function registerMediaCollections(): void {
         $this->addMediaCollection('image')->singleFile();
         $this->addMediaCollection('photos');
-        $this->addMediaCollection('video_thumbnail')->singleFile();
     }
 }
