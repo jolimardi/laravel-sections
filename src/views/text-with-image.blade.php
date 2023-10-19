@@ -9,11 +9,10 @@
     <div class="text-with-image">
 
         {{-- Image Responsive --}}
-        @if (isset($section->video_url))
+        @if (isset($section->video[0]))
             <div class="section-video">
                 <div class="video-container">
-                    {{-- <x-youtube :youtube='$section->video_url' :youtube-thumbnail-media="$section->getFirstMedia('video_thumbnail')" /> --}}
-                    <x-youtube-inline :youtube='$section->video_url' />
+                    <x-video-inline :video='$section->video[0]' />
                 </div>
             </div>
         @else

@@ -203,6 +203,9 @@
 .section--text-with-image .text-with-image .section-image .video-thumbnail {
                 margin: 0;
                 height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
 
                 /* Permet de faire grandir le ratio 16x9 si besoin pour que la vidéo fasse toute la hauteur de la section */
             }
