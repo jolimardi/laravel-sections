@@ -42,8 +42,8 @@ class MySectionsServiceProvider extends ServiceProvider {
 
         /* Components */
         Blade::component('section', \JoliMardi\MySections\Components\Section::class);
-        Blade::component('youtube-inline', \JoliMardi\MySections\Components\YoutubeInline::class);
-        Blade::component('youtube', \JoliMardi\MySections\Components\Youtube::class);
+        Blade::component('youtube-inline', \JoliMardi\MySections\Components\VideoInline::class);
+        Blade::component('youtube', \JoliMardi\MySections\Components\VideoPopup::class);
     }
 
     public function register() {
