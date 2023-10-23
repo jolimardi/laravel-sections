@@ -9,9 +9,11 @@
     <div class="horizontal-card flex align-center gap">
 
         {{-- Image Responsive --}}
-        <div class="section-image">
-            {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
-        </div>
+        @if($section->getFirstMedia('image'))
+            <div class="section-image">
+                {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
+            </div>
+        @endif
 
         {{-- Si SVG : <img src="{{ $section->getFirstMedia('image')->getUrl() }}" alt="{{ $section->title }}"> --}}
 
