@@ -47,9 +47,9 @@
                         {{-- secondary CTA --}}
                         @empty(!$section->cta_secondary_title)
                             @if (!empty($section->cta_secondary_routename))
-                                <a href="{{ route($section->cta_secondary_routename) }}" class="btn btn-link">{{ $section->cta_secondary_title }}</a>
+                                <a href="{{ route($section->cta_secondary_routename) }}" class="btn btn-secondary">{{ $section->cta_secondary_title }}</a>
                             @else
-                                <a href="{{ $section->cta_secondary_href }}" class="btn btn-link">{{ $section->cta_secondary_title }}</a>
+                                <a href="{{ $section->cta_secondary_href }}" class="btn btn-secondary">{{ $section->cta_secondary_title }}</a>
                             @endif
                         @endempty
                     </div>

@@ -57,7 +57,7 @@
                     </div>
                 @endif
 
-                @if ($section->getMedia('photos'))
+                @if (isset($section->getMedia('photos')[0]))
                     <div class="section-photos">
                         @foreach ($section->getMedia('photos') as $photo)
                             <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">

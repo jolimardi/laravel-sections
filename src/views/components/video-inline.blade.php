@@ -1,5 +1,5 @@
 @if (isset($video))
-    <div class="video-thumbnail ratio-16x9" style="background-image: url('{{ $video->thumbnail_url }}')">
+    <div class="video-thumbnail ratio-16x9">
 
         {{-- Youtube --}}
         @if ($video->service == 'youtube')
