@@ -85,6 +85,7 @@
                 width: auto;
                 margin-left: var(--gutter);
                 margin-right: var(--gutter);
+                padding-bottom: 2.4em;
             }
 
             .section--text-with-image .text-with-image .text {
