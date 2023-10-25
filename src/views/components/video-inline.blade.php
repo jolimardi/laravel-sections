@@ -19,6 +19,8 @@
 
             <div class="unmute">@svg('coolicon-volume-off-02', 'volume-0')@svg('coolicon-volume-max', 'volume-1')<span> Activer le son</span></div>
 
+            <img class="image-loading-screen" src="{{ $video->thumbnail_url }}" alt="Chargement... {{ $video->title }}" />
+
             {{-- 
                 /*   Le code JS à mettre dans app.js
                 /* Players Viméos Inlines : autoplay et unmute si clic dessus   */
