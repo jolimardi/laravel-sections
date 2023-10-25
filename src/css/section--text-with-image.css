@@ -2,10 +2,6 @@
 
 .reverse .text-with-image {
     flex-direction: row-reverse;
-    .section-image img {
-        right: var(--gutter);
-        left: 0;
-    }
 }
 
 .section--text-with-image {
@@ -63,7 +59,7 @@
             justify-content: center;
         }
 
-        div.text {
+        .text-container > .text {
             width: 680px;
             max-width: 100%;
             margin: auto;
