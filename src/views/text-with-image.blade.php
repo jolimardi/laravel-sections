@@ -15,7 +15,7 @@
                     <x-video-inline :video='$section->video[0]' />
                 </div>
             </div>
-            
+
         @elseif($section->getFirstMedia('image'))
             <div class="section-image">
                 {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
@@ -65,7 +65,7 @@
                     </div>
                 @endif
 
-                @if ($section->getMedia('photos'))
+                @if (isset($section->getMedia('photos')[0]))
                     <div class="section-photos">
                         @foreach ($section->getMedia('photos') as $photo)
                             <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">
