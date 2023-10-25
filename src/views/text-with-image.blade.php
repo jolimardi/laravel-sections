@@ -15,7 +15,8 @@
                     <x-video-inline :video='$section->video[0]' />
                 </div>
             </div>
-        @else
+            
+        @elseif($section->getFirstMedia('image'))
             <div class="section-image">
                 {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
             </div>
@@ -30,7 +31,7 @@
 
                 {{-- Subheading --}}
                 @empty(!$section->subheading)
-                    <h5 class="subheading text-highlight-blue">{{ $section->subheading }}</h5>
+                    <h5 class="subheading text-accent">{{ $section->subheading }}</h5>
                 @endempty
 
                 {{-- Title --}}

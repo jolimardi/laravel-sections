@@ -22,7 +22,7 @@
             <div class="text">
 
                 @empty(!$section->alternative)
-                    <h5 class="subheading text-highlight-blue">{{ $section->subheading }}</h5>
+                    <h5 class="subheading text-accent">{{ $section->subheading }}</h5>
                 @endempty
                 {{-- Title --}}
                 @empty(!$section->title)

@@ -61,13 +61,14 @@
             justify-content: center;
         }
 
-.section--text-with-image .text-with-image .text {
-            max-width: 680px;
+.section--text-with-image .text-with-image div.text {
+            width: 680px;
+            max-width: 100%;
             margin: auto;
             padding: 4em 2em;
         }
 
-.section--text-with-image .text-with-image .text .subheading {
+.section--text-with-image .text-with-image div.text .subheading {
                 color: var(--blue);
             }
 

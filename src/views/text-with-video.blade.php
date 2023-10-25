@@ -24,7 +24,7 @@
 
                     {{-- Subheading --}}
                     @empty(!$section->subheading)
-                        <h5 class="subheading text-highlight-blue">{{ $section->subheading }}</h5>
+                        <h5 class="subheading text-accent">{{ $section->subheading }}</h5>
                     @endempty
 
                     {{-- Title --}}
