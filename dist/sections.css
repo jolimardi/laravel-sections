@@ -176,6 +176,11 @@
     flex-direction: row-reverse;
 }
 
+.reverse .text-with-image .section-image img {
+        right: var(--gutter);
+        left: 0;
+    }
+
 .section--text-with-image .text-with-image {
         display: flex;
         align-items: stretch;
@@ -238,6 +243,7 @@
             max-width: 100%;
             margin: auto;
             padding: 4em 2em;
+            box-sizing: border-box;
         }
 
 .section--text-with-image .text-with-image div.text .subheading {

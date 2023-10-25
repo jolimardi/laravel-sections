@@ -2,6 +2,10 @@
 
 .reverse .text-with-image {
     flex-direction: row-reverse;
+    .section-image img {
+        right: var(--gutter);
+        left: 0;
+    }
 }
 
 .section--text-with-image {
@@ -64,6 +68,7 @@
             max-width: 100%;
             margin: auto;
             padding: 4em 2em;
+            box-sizing: border-box;
 
             .subheading {
                 color: var(--blue);
