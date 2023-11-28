@@ -43,6 +43,18 @@
                             }
                         });
                     }
+
+                    var $loadingCover = $(iframe).siblings('.image-loading-screen');
+                    if ($loadingCover.length > 0) {
+                        var loadingCoverRemoved = false;
+                        player.on('play', function () {
+                            console.log('playing, removing cover', $loadingCover);
+                            if (!loadingCoverRemoved) {
+                                $loadingCover.fadeOut(300);
+                                loadingCoverRemoved = true;
+                            }
+                        });
+                    }
                 });
             --}}
 
