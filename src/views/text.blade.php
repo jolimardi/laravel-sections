@@ -38,9 +38,9 @@
                         @empty(!$section->cta_title)
 
                             @if (!empty($section->cta_routename))
-                                <a href="{{ route($section->cta_routename) }}" class="btn btn-small btn-primary">{{ $section->cta_title }}</a>
+                                <a href="{{ route($section->cta_routename) }}" class="btn btn-small btn-primary">{{ $section->cta_title }} {{ svg('coolicon-arrow-right-md') }}</a>
                             @else
-                                <a href="{{ $section->cta_href }}" class="btn btn-small btn-primary">{{ $section->cta_title }}</a>
+                                <a href="{{ $section->cta_href }}" class="btn btn-small btn-primary">{{ $section->cta_title }} {{ svg('coolicon-arrow-right-md') }}</a>
                             @endif
                         @endempty
 
