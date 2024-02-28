@@ -13,8 +13,14 @@ class Section extends Component {
 
     public function render(): View|Closure|string {
 
-        if (view()->exists('vendor.laravel-sections.section')) {
-            return view('vendor.laravel-sections.section');
+        // Si la view views/components/section.blade.php existe, on la prend en priorité
+        if (view()->exists('components.section')) {
+            return view('components.section');
+        }
+
+        // Puis si la view views/vendor/laravel-sections/components/section.blade.php existe, on la prend ensuite (celle qui est copiée si on publie les vues du module)
+        if (view()->exists('vendor.laravel-sections.components.section')) {
+            return view('vendor.laravel-sections.components.section');
         }
 
         return view('section::components.section');
