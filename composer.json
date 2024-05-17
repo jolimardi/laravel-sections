@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "ebess/advanced-nova-media-library": "dev-master",
+        "ebess/advanced-nova-media-library": "^4.2",
         "jolimardi/nova-video-field": "dev-main"
     },
     "extra": {
