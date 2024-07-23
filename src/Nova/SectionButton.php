@@ -1,6 +1,6 @@
 <?php
 
-namespace JoliMardi\MySections\Nova;
+namespace App\Nova;
 
 use App\Nova\Resource;
 use Illuminate\Validation\Rule;
