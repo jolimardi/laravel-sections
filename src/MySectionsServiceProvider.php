@@ -42,7 +42,7 @@ class MySectionsServiceProvider extends ServiceProvider {
 
         /* Components */
         Blade::component('section', \JoliMardi\MySections\Components\Section::class);
-        Blade::component('section-button', \JoliMardi\MySections\Components\Section::class);
+        Blade::component('section-button', \JoliMardi\MySections\Components\SectionButton::class);
         Blade::component('video-inline', \JoliMardi\MySections\Components\VideoInline::class);
         Blade::component('video-popup', \JoliMardi\MySections\Components\VideoPopup::class);
     }
