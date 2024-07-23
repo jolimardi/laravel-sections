@@ -3,3 +3,4 @@ vendor
 temp
 mix-manifest.json
 package-lock.json
+.idea
