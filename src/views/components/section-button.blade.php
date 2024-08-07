@@ -9,6 +9,14 @@
     'icon' => '',
 ])
 
+{{-- Si ça vient d'un Repeater, on a un array et pas un object, qu'on convertit en object--}}
+@php
+    if (is_array($btn) && isset($btn['fields'])) {
+        $btn = (object) $btn['fields'];
+    }
+@endphp
+
+
 {{-- S'il y a un routename valide, on override le href --}}
 @if (!empty($btn->routename) && Route::has($btn->routename))
     @php
