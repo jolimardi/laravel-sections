@@ -63,7 +63,7 @@ class Section extends Resource {
 
             new Panel('Boutons', [
                 Repeater::make('SectionButton', 'buttons')
-                    ->asHasMany()
+                    ->asJson()
                     ->fullWidth()
                     ->stacked()
                     ->repeatables([

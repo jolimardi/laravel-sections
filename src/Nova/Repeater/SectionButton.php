@@ -48,5 +48,4 @@ class SectionButton extends Repeatable {
 
         ];
     }
-    public static $model = \App\Models\SectionButton::class;
 }

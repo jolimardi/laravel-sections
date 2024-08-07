@@ -19,6 +19,10 @@ class Section extends Model implements HasMedia {
 
     protected $table = 'sections_content';
 
+    protected $casts = [
+        'buttons' => 'array',
+    ];
+
     // Sert pour les vidéos (stockées en json)
     protected function video(): Attribute {
         return Attribute::make(
@@ -28,10 +32,6 @@ class Section extends Model implements HasMedia {
 
     public function template(): BelongsTo {
         return $this->belongsTo(SectionTemplate::class, 'template_name', 'name');
-    }
-
-    public function buttons(): HasMany{
-        return $this->hasMany(SectionButton::class, 'section_id');
     }
 
     public function max_width_relationship(): BelongsTo {
