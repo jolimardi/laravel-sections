@@ -41,8 +41,12 @@ class Section extends Resource {
         return [
 
             new Panel('Contenu', [
+                
                 Text::make('Titre', 'title')->sortable(),
-                Text::make('Subheading'),
+
+                Text::make('Subheading')->displayUsing(function ($value) {
+                    return \Str::limit($value, 30); // Limit to 30 characters
+                }),
 
                 // Media Library
                 Images::make('Image principale', 'image')
