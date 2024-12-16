@@ -5,7 +5,7 @@
         'primary' => 'btn-primary',
         'secondary' => 'btn-secondary',
     ],
-    'href' => $btn->href ?? '',
+    'href' => '',
     'icon' => '',
 ])
 
@@ -16,6 +16,11 @@
     }
 @endphp
 
+@if(empty($href) && !empty($btn->href))
+    @php
+        $href = $btn->href;
+    @endphp
+@endif
 
 {{-- S'il y a un routename valide, on override le href --}}
 @if (!empty($btn->routename) && Route::has($btn->routename))
