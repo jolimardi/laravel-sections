@@ -9,6 +9,7 @@
     .text-with-image {
         display: flex;
         align-items: stretch;
+        max-width: 100%;
 
         & > * {
             flex: 1;
