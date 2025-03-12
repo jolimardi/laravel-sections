@@ -11,7 +11,7 @@
 
     <div class="video-container">
         <a class="video-thumbnail ratio-16x9" target="_blank" href="{{ $video_url }}" data-fancybox="videos">
-            <img src="{{ $video->thumbnail_url }}" alt="{{ $video->title }} (vidéo)">
+            <img src="{{ Storage::disk('videos')->url($video->thumbnail_url) }}" alt="{{ $video->title }} (vidéo)">
 
             <div class="overlay">
                 @svg('icon-play-video', 'play-video')

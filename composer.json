@@ -20,7 +20,7 @@
     ],
     "require": {
         "ebess/advanced-nova-media-library": "^4.2",
-        "jolimardi/nova-video-field": "^1.0"
+        "jolimardi/nova-video-field": "^2.0"
     },
     "extra": {
         "laravel": {
