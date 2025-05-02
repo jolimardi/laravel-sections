@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "ebess/advanced-nova-media-library": "^4|^5",
+        "ebess/advanced-nova-media-library": "^4 || ^5",
         "jolimardi/nova-video-field": "^2.0"
     },
     "extra": {
