@@ -30,14 +30,6 @@ class Section extends Model implements HasMedia {
         );
     }
 
-    public function template(): BelongsTo {
-        return $this->belongsTo(SectionTemplate::class, 'template_name', 'name');
-    }
-
-    public function max_width_relationship(): BelongsTo {
-        return $this->belongsTo(SectionMaxWidth::class, 'max_width', 'class');
-    }
-
 
     // Custom fields (attention, ne marche pas avec key_classname par exemple)
     public function getkeyClassnameAttribute() {

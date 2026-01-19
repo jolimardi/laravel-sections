@@ -1,10 +1,5 @@
 @props([
     'btn',
-    // La clé est le type de bouton, associées aux classes correspondantes
-    'btnClasses' => [
-        'primary' => 'btn-primary',
-        'secondary' => 'btn-secondary',
-    ],
     'href' => '',
     'icon' => '',
 ])
@@ -39,7 +34,7 @@
 
 
 
-<a href="{{ $href }}" {{ $attributes->merge(['class' => "btn {$btnClasses[$btn->type]}"]) }} {{ $btn->target_blank ? 'target="_blank"' : '' }}>{!! $btn->title !!}{!! (!empty($icon) ? '&nbsp;' . $icon->toHtml() : '') !!}</a>
+<a href="{{ $href }}" {{ $attributes->merge(['class' => "btn {$btn->type}"]) }} {{ $btn->target_blank ? 'target="_blank"' : '' }}>{!! $btn->title !!}{!! (!empty($icon) ? '&nbsp;' . $icon->toHtml() : '') !!}</a>
 
 
 
