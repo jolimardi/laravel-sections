@@ -10,17 +10,12 @@
     },
     "authors": [
         {
-            "name": "Emilien Hodee",
-            "email": "hodeeemilien@gmail.com"
-        },
-        {
             "name": "Romain Cherot",
             "email": "romain@cherot.fr"
         }
     ],
     "require": {
-        "ebess/advanced-nova-media-library": "^4 || ^5",
-        "jolimardi/nova-video-field": "^2.0"
+        "php": "^8.1"
     },
     "extra": {
         "laravel": {

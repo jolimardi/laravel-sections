@@ -1,8 +1,8 @@
 # Jolimardi - laravel-sections
 
-**Ce package fonctionne avec Laravel Nova, veillez donc à l'installer avant de poursuivre. Retrouver la documentation et les instructions d'installation de Laravel Nova sur leur [page officielle](https://nova.laravel.com/docs/4.0/installation.html)**
+**Ce package fonctionne avec [Filament](https://filamentphp.com/docs/4.x/introduction/installation)**
 
-**Il est également préférable d'utiliser le css jolimardi pour assurer un bon fonctionnement. [jolimardi-css GitHub](https://github.com/jolimardi/jolimardi-css)**
+Le CSS pour formater les sections est disponible sur le [repo Joli Mardi CSS](https://github.com/jolimardi/jolimardi-css/blob/main/layout/sections.css)
 
 ## Installation 
 
@@ -22,10 +22,11 @@ php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServicePro
 
 Il est également possible de *publish* le package en plusieurs fois en ajoutant différents tags, selon les besoins : 
 
-- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="nova"` - *Publish aussi les models*
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="models"` - *Publish aussi les models*
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="migrations"`
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="assets"`
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="views"`
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="enums"`
 
 3. Lancez les migrations pour ajouter les tables nécessaires à la base de données :
 
