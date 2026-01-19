@@ -1,19 +1,14 @@
 # Jolimardi - laravel-sections
 
-**Ce package fonctionne avec [Filament](https://filamentphp.com/docs/4.x/introduction/installation)**
+**Ce package et fait pour fonctionner avec [Filament](https://filamentphp.com/docs/4.x/introduction/installation) et
+`composer require jolimardi/filament-video-field`**
 
-Le CSS pour formater les sections est disponible sur le [repo Joli Mardi CSS](https://github.com/jolimardi/jolimardi-css/blob/main/layout/sections.css)
+Le CSS pour les sections est disponible sur le [repo Joli Mardi CSS](https://github.com/jolimardi/jolimardi-css/blob/main/layout/sections.css)
 
-## Installation 
-
-1. Exécuter la commande suivante pour ajouter laravel-mysections au projet :
-
+## Installation
 ```bash
 composer require jolimardi/laravel-sections
 ```
-
-2. Publier les ressources du package en utilisant :
-
 ```bash
 php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider"
 ```
@@ -36,21 +31,11 @@ php artisan migrate`
 
 ## Configuration
 
-- Ajoutez `JoliMardi\MySections\MySectionsServiceProvider::class` à votre fichier `config/app.php`, seulement si cela s'avère nécessaire. Cette étape peut être requise si le package ne respecte pas la convention PSR-4 ou s'il est mal implémenté dans le `composer.json` autoload.
-
 - Importez le fichier CSS du package dans `app.css` en ajoutant la ligne suivante *(Recommandé avec Vite.js)*:
 
 ```css
-@import "../../public/vendor/mysections/sections.css";
+@import "../../vendor/jolimardi/laravel-mysections/dist/sections.css";
 ```
-
-> En développement, on préferera utiliser `@import "../../vendor/jolimardi/laravel-mysections/dist/sections.css";` pour ne pas avoir à publish les assets à chaque sauvegarde.
-
-## Supplément pour Nova
-
-Afin que tout fonctionne bien lors de la création de section sur Nova. Il faudt également installer Nova CKEditor : 
-
-https://jolimardi.github.io/documentation/docs/laravel/Features/add-ckeditor
 
 ## Utilisation
 
@@ -64,22 +49,26 @@ Il est possible d'utiliser le composant `<x-section>` dans une views afin de dé
 <x-layout>
     @mySection($sections, 'home.about')
 
+    <x-section large gray>
+        <h3>Ma section</h3>
+        <p>Largeur max-width-large et background "gray"</p>
+    </x-section>
     <x-section maxWidth="large" bg="gray">
-        <x-list-icon />
+        <h3>Ma section</h3>
+        <p>Contenu de ma section</p>
     </x-section>
 </x-layout>
 ```
 
-## Customisé les sections
+## Customiser les sections
 
-Après avoir éxécuter la commande : 
+Pour publier les vues dans votre projet et pourvoir les modifier (dans  `resources/views/vendor/laravel-sections`) :
 ```bash
 php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="views"
 ```
 
-Retrouver dans `resources/views/vendor/laravel-sections` les vues des différentes sections qui sont utiliser pour render respectivement chaque section par défaut. 
-
-## Création d'une nouvelle section
+--- 
+## Création d'une nouvelle section intégrée à ce package
 
 Voici les étapes à suivre pour créer une nouvelle section :
 
@@ -94,9 +83,7 @@ Voici les étapes à suivre pour créer une nouvelle section :
 _Remarque :_ Ces instructions supposent que vous êtes déjà familiarisé avec l'utilisation de Nova et de Laravel. Si ce n'est pas le cas, je vous recommande de consulter la documentation officielle pour plus d'informations.
 
 
-# Changer le contenu du package 
-
-Il est possible d'update le package à sa guise. 
+# Modifier ce package (pour les contributeurs)
 
 1. Installer les dépendances 
 
@@ -117,7 +104,7 @@ Ou mettre à jour une fois en utilisant :
 npx mix
 ```
 
-> Remarque : Si vous modifier le contenu de `/dist` et que vous avez publish les assets. Il faut supprimer le fichier `section.css` dans `public/vendor/mysections` et relancer la commande pour publish le nouveaux fichier. (Voir Installation -> Tags)
+> Remarque : Si vous modifier le contenu de `/dist` et que vous avez publish les assets. Il faut supprimer le fichier `section.css` dans `public/vendor/mysections` et relancer la commande pour publish le nouveau fichier (ou le --force marche ? A tester). (Voir Installation -> Tags)
 
 ## Ajouter une nouvelle section au package
 
@@ -140,4 +127,4 @@ Puis mettre à jour le dépôt et de mettre à jour votre projet avec les nouvel
 #### @TODO
 
 - Ajouter les variables css type max-width pour pouvoir utiliser le component `<x-section><x-section />` sans avoir besoin de jolimardi-css
-- Build le webpack.mix.js pour automatiquement récuperer tout les fichiers css du dossier relatif.  J'ai essayer de glob les fichiers mais j'ai toujours un comportement qui ne convient pas. 
+- Build le webpack.mix.js pour automatiquement récupérer tous les fichiers css du dossier relatif.  J'ai essayé de glob les fichiers mais j'ai toujours un comportement qui ne convient pas. 

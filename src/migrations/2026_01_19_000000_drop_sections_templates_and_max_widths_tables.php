@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('sections_templates');
         Schema::dropIfExists('sections_max_widths');
+        Schema::dropIfExists('sections_buttons_unused');
     }
 
     /**

@@ -18,10 +18,15 @@ class MySectionsServiceProvider extends ServiceProvider {
 				__DIR__ . '/../dist' => public_path('vendor/mysections'),
 			], 'assets');
 
-			// Nova + models
+			// Models
 			$this->publishes([
 				__DIR__ . '/Models' => app_path('Models'),
 			], 'models');
+
+			// Filament
+			$this->publishes([
+				__DIR__ . '/Filament' => app_path('Filament'),
+			], 'filament');
 
 			// Migrations
 			$this->publishes([

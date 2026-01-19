@@ -18,6 +18,7 @@ class Section extends Model implements HasMedia {
     use InteractsWithMedia;
 
     protected $table = 'sections_content';
+	protected $guarded = [];
 
     protected $casts = [
         'buttons' => 'array',
