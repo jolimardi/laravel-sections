@@ -45,7 +45,7 @@ class MySectionsServiceProvider extends ServiceProvider {
 
 			// Icône play vidéo (sert pour le component video-popup)
 			$this->publishes([
-				__DIR__ . '/icons' => app_path('resources/icons'),
+				__DIR__ . '/icons' => resource_path('icons'),
 			], 'icons');
 		}
 
