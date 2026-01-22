@@ -42,6 +42,11 @@ class MySectionsServiceProvider extends ServiceProvider {
 			$this->publishes([
 				__DIR__ . '/Enums' => app_path('Enums'),
 			], 'enums');
+
+			// Icône play vidéo (sert pour le component video-popup)
+			$this->publishes([
+				__DIR__ . '/icons' => app_path('resources/icons'),
+			], 'icons');
 		}
 
 		Blade::directive('mySection', fn($expression) => "<?php \JoliMardi\MySections\MySectionsServiceProvider::mySection($expression); ?>");

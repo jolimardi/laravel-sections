@@ -27,7 +27,7 @@ class MyButtonsRepeater extends Repeater {
 
 			Select::make('type')->label('Couleur')->options(SectionsButtonTypes::array())->default('btn-primary')->required(),
 
-			Select::make('icon')->label('Icône')->options(SectionsButtonIcons::array())->default('')->nullable()->placeholder('Aucune icone'),
+			Select::make('icon')->label('Icône')->options(SectionsButtonIcons::array())->default('')->nullable()->placeholder('Aucune icône'),
 
 			ToggleButtons::make('link_type')->label('Type de lien')
 				->options([
