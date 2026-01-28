@@ -7,11 +7,11 @@
     'no-padding-top' =>$section->getFirstMedia('image') ? true : false,
 ])>
 
-    <div class="banner section-banner">
-        @if ($section->getFirstMedia('image'))
+    @if ($section->getFirstMedia('image'))
+        <div class="banner section-banner">
             {{ $section->getFirstMedia('image')->img('responsive', ['alt' => $section->title]) }}
-        @endif
-    </div>
+        </div>
+    @endif
 
 
     <div class="{{ $section->max_width ?? 'max-width' }}">
