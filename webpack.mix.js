@@ -15,7 +15,8 @@ mix.postCss('src/css/section--global.css', 'temp')
     .postCss('src/css/section--text.css', 'temp')
     .postCss('src/css/section--text-video.css', 'temp')
     .postCss('src/css/section--text-with-image.css', 'temp')
-    .postCss('src/css/section--horizontal-card.css', 'temp');
+    .postCss('src/css/section--horizontal-card.css', 'temp')
+    .postCss('src/css/section--banner-text.css', 'temp');
 
 mix.styles([
     'temp/section--global.css',
@@ -23,6 +24,7 @@ mix.styles([
     'temp/section--text-video.css',
     'temp/section--text-with-image.css',
     'temp/section--horizontal-card.css',
+    'temp/section--banner-text.css',
 ], 'dist/sections.css');
 
 fs.removeSync('temp');

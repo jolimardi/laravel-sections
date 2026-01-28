@@ -5,6 +5,7 @@ namespace JoliMardi\MySections\Enums;
 enum SectionsTemplates: string {
 
 	case TextWithImage = 'text-with-image';
+	case BannerText = 'banner-text';
 	case Text = 'text';
 	case TextWithVideo = 'text-with-video';
 	case HorizontalCard = 'horizontal-card';
@@ -13,6 +14,7 @@ enum SectionsTemplates: string {
 	public function label(): string {
 		return match ($this) {
 			self::TextWithImage => 'Texte + image',
+			self::BannerText => 'Bannière + Texte',
 			self::Text => 'Texte seul',
 			self::TextWithVideo => 'Texte + vidéo',
 			self::HorizontalCard => 'Card horizontale (pour liste)',

@@ -7,6 +7,7 @@
 .section--text-with-image .text-with-image {
         display: flex;
         align-items: stretch;
+        max-width: 100%;
     }
 
 .section--text-with-image .text-with-image > * {
