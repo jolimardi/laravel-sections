@@ -12,13 +12,13 @@
         @if (isset($section->video[0]))
             <div class="section-video">
                 <div class="video-container">
-                    <x-video-inline :video='$section->video[0]' />
+                    <x-video-popup :video='$section->video[0]' />
                 </div>
             </div>
 
         @elseif($section->getFirstMedia('image'))
             <div class="section-image">
-                {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
+                {{ $section->getFirstMedia('image')->img('medium', ['alt' => $section->title]) }}
             </div>
         @endif
 
@@ -56,8 +56,8 @@
                 @if (isset($section->getMedia('photos')[0]))
                     <div class="section-photos">
                         @foreach ($section->getMedia('photos') as $photo)
-                            <a href="{{ $photo->getUrl() }}" data-fancybox="photos-{{ $section->keyClassname }}">
-                                {{ $photo->img('', ['alt' => $section->title]) }}
+                            <a href="{{ $photo->getUrl('full') }}" data-fancybox="photos-{{ $section->keyClassname }}">
+                                {{ $photo->img('thumbnail-small', ['alt' => $section->title]) }}
                             </a>
                         @endforeach
                     </div>

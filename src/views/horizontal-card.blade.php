@@ -11,7 +11,7 @@
         {{-- Image Responsive --}}
         @if($section->getFirstMedia('image'))
             <div class="section-image">
-                {{ $section->getFirstMedia('image')->img('', ['alt' => $section->title]) }}
+                {{ $section->getFirstMedia('image')->img('medium', ['alt' => $section->title]) }}
             </div>
         @endif
 

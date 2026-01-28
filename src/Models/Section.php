@@ -9,50 +9,63 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Section extends Model implements HasMedia {
-    use HasFactory;
-    use InteractsWithMedia;
+	use HasFactory;
+	use InteractsWithMedia;
 
-    protected $table = 'sections_content';
+	protected $table = 'sections_content';
 	protected $guarded = [];
 
-    protected $casts = [
-        'buttons' => 'array',
-    ];
-
-    // Sert pour les vidéos (stockées en json)
-    protected function video(): Attribute {
-        return Attribute::make(
-            get: fn ($value) => json_decode($value),
-        );
-    }
+	protected $casts = [
+		'buttons' => 'array',
+	];
 
 
-    // Custom fields (attention, ne marche pas avec key_classname par exemple)
-    public function getkeyClassnameAttribute() {
-        return str_replace('.', '-', $this->key);
-    }
+	// Sert pour les vidéos (stockées en json)
+	protected function video(): Attribute {
+		return Attribute::make(
+			get: fn($value) => json_decode($value),
+		);
+	}
 
 
-    // Ajout &nbsp; before save
-    public function setPAttribute($value) {
-        $this->attributes['p'] = str_replace([' ?', ' !', ' :'], ['&nbsp;?', '&nbsp;!', '&nbsp;:'], $value);
-    }
+	// Custom fields (attention, ne marche pas avec key_classname par exemple)
+	public function getkeyClassnameAttribute() {
+		return str_replace('.', '-', $this->key);
+	}
 
 
-    // Ajout pour la media library (et mutliple image uploads Nova)
-    public function registerMediaConversions(Media $media = null): void {
-        $this->addMediaConversion('thumb')
-            ->width(460)
-            ->height(260);
-    }
+	// Ajout &nbsp; before save
+	public function setPAttribute($value) {
+		$this->attributes['p'] = str_replace([' ?', ' !', ' :'], ['&nbsp;?', '&nbsp;!', '&nbsp;:'], $value);
+	}
 
-    public function registerMediaCollections(): void {
-        $this->addMediaCollection('image')->singleFile();
-        $this->addMediaCollection('photos');
-    }
+
+	// Ajout pour la media library (et multiple image uploads Nova)
+	public function registerMediaConversions(Media $media = null): void {
+		$this->addMediaConversion('thumbnail-small')
+			->fit(Fit::Crop, 160, 160)
+			->quality(85);
+		$this->addMediaConversion('medium')
+			->fit(Fit::Contain, 960, 800)
+			->quality(80);
+		$this->addMediaConversion('full')
+			->quality(75)
+			->fit(Fit::Contain, 2600, 1400);
+		$this->addMediaConversion('responsive')
+			->quality(80)
+			->fit(Fit::Contain, 2600, 1400)
+			->withResponsiveImages();
+	}
+
+
+	public function registerMediaCollections(): void {
+		$this->addMediaCollection('image')->singleFile();
+		$this->addMediaCollection('photos');
+	}
 }
