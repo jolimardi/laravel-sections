@@ -81,7 +81,11 @@ class MySectionsServiceProvider extends ServiceProvider {
 			$packageAlias = "JoliMardi\\MySections\\Enums\\{$enum}";
 
 			// Si la classe App existe, on l'aliase vers le namespace du package
-			if (class_exists($appClass)) {
+			// Ajouter un check sur class_alias s'il existe déjà :
+			$aliasExists = class_exists($packageAlias);
+
+			// Si l'alias n'existe pas et que la classe App existe, on l'aliase vers le namespace du package
+			if (! $aliasExists && class_exists($appClass)) {
 				class_alias($appClass, $packageAlias);
 			}
 		}
