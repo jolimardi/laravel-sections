@@ -1,6 +1,6 @@
 <?php
 
-namespace JoliMardi\MySections\Enums;
+namespace App\Enums;
 
 enum SectionsMaxWidths: string {
 	case MaxWidth = 'max-width';
@@ -24,7 +24,7 @@ enum SectionsMaxWidths: string {
 		return $result;
 	}
 
-	public static function getLabel(int $value): ?string {
+	public static function getLabel(string $value): ?string {
 		return self::tryFrom($value)?->label();
 	}
 }

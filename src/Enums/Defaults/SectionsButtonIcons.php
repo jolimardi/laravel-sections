@@ -1,6 +1,6 @@
 <?php
 
-namespace JoliMardi\MySections\Enums;
+namespace JoliMardi\MySections\Enums\Defaults;
 
 enum SectionsButtonIcons: string {
 
@@ -27,7 +27,7 @@ enum SectionsButtonIcons: string {
 		return $result;
 	}
 
-	public static function getLabel(int $value): ?string {
+	public static function getLabel(string $value): ?string {
 		return self::tryFrom($value)?->label();
 	}
 }

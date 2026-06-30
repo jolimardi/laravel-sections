@@ -40,7 +40,7 @@ class MySectionsServiceProvider extends ServiceProvider {
 
 			// Enums (stubs avec namespace App\Enums)
 			$this->publishes([
-				__DIR__ . '/Enums' => app_path('Enums'),
+				__DIR__ . '/../stubs/Enums' => app_path('Enums'),
 			], 'enums');
 
 			// Icône play vidéo (sert pour le component video-popup)
@@ -66,7 +66,14 @@ class MySectionsServiceProvider extends ServiceProvider {
 
 	/**
 	 * Enregistre les aliases pour les enums.
-	 * Si App\Enums\X existe, on l'utilise, sinon on utilise la version par défaut du package.
+	 *
+	 * Le FQCN public (JoliMardi\MySections\Enums\X) n'est volontairement PAS une vraie
+	 * classe : c'est toujours un alias. On le pointe vers App\Enums\X si l'app a publié
+	 * son override, sinon vers l'enum par défaut du package (...\Enums\Defaults\X).
+	 *
+	 * Indispensable car class_alias() ne peut pas écraser une classe déjà déclarée :
+	 * si le package livrait une vraie classe sur le FQCN public, aucun override App ne
+	 * pourrait jamais prendre la main.
 	 */
 	protected function registerEnumAliases(): void {
 		$enums = [
@@ -77,17 +84,19 @@ class MySectionsServiceProvider extends ServiceProvider {
 		];
 
 		foreach ($enums as $enum) {
-			$appClass = "App\\Enums\\{$enum}";
-			$packageAlias = "JoliMardi\\MySections\\Enums\\{$enum}";
+			$publicFqcn   = "JoliMardi\\MySections\\Enums\\{$enum}";
+			$appClass     = "App\\Enums\\{$enum}";
+			$defaultClass = "JoliMardi\\MySections\\Enums\\Defaults\\{$enum}";
 
-			// Si la classe App existe, on l'aliase vers le namespace du package
-			// Ajouter un check sur class_alias s'il existe déjà :
-			$aliasExists = class_exists($packageAlias);
-
-			// Si l'alias n'existe pas et que la classe App existe, on l'aliase vers le namespace du package
-			if (! $aliasExists && class_exists($appClass)) {
-				class_alias($appClass, $packageAlias);
+			// Déjà aliasé (ex : double boot) → on ne refait rien.
+			if (class_exists($publicFqcn, false)) {
+				continue;
 			}
+
+			// Override App publié → on l'utilise, sinon fallback sur le défaut du package.
+			$target = class_exists($appClass) ? $appClass : $defaultClass;
+
+			class_alias($target, $publicFqcn);
 		}
 	}
 

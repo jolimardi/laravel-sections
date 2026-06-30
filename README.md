@@ -21,7 +21,7 @@ Il est également possible de *publish* le package en plusieurs fois en ajoutant
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="migrations"`
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="assets"`
 - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="views"`
-- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="enums"`
+- `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="enums"` - *Publie les enums dans `app/Enums` (namespace `App\Enums`). Ces fichiers surchargent automatiquement les enums par défaut du package : éditez-les librement (ajout de couleurs de boutons, d'icônes, etc.). Sans publication, les valeurs par défaut du package sont utilisées.*
 - - `php artisan vendor:publish --provider="JoliMardi\MySections\MySectionsServiceProvider" --tag="icons"`
 
 3. Lancez les migrations pour ajouter les tables nécessaires à la base de données :
